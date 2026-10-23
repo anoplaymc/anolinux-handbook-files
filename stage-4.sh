@@ -5,6 +5,11 @@ echo "Installing AnoLinux Packages..."
 pacman -S --noconfirm sddm plasma-meta konsole kitty fastfetch firefox git python-pyqt6 python-requests
 
 echo "Setting AnoLinux parameters..."
+
+# Устанавливаем hostname и зашиваем локальный домен в /etc/hosts
+echo "anolinux" > /etc/hostname
+echo -e "127.0.0.1\tlocalhost\n::1\tlocalhost\n127.0.1.1\tanolinux.localdomain\tanolinux" > /etc/hosts
+
 cat << 'OSRELEASE' > /etc/os-release
 NAME="AnoLinux"
 ID=anolinux
